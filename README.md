@@ -5,12 +5,12 @@ A guide to obtain a free, valid SSL for UniFi Controller. This method actually u
 
 ## Install UniFi Controller
 
-sudo apt-get update -y
-sudo apt-get upgrade -y
-echo "deb http://www.ubnt.com/downloads/unifi/debian unifi5 ubiquiti" > /etc/apt/sources.list.d/ubnt.list 
-apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50
-apt-get update -y
-apt-get install unifi -y
+	sudo apt-get update -y
+	sudo apt-get upgrade -y
+	echo "deb http://www.ubnt.com/downloads/unifi/debian unifi5 ubiquiti" > /etc/apt/sources.list.d/ubnt.list 
+	apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50
+	apt-get update -y
+	apt-get install unifi -y
 
 
 ## Install Let's Encrypt certbot
@@ -74,7 +74,7 @@ apt-get install unifi -y
 		</Directory>
 	</VirtualHost>
 
-	## Example of 000-default-le-ssl.conf, change unifi.example.com to your site:
+## Example of 000-default-le-ssl.conf, change unifi.example.com to your site:
 
 	<IfModule mod_ssl.c>
 	<VirtualHost *:443>
@@ -122,4 +122,4 @@ apt-get install unifi -y
 	</IfModule>
 
 ## Restart Apache for changes to take effect
-service apache2 restart
+	service apache2 restart
