@@ -4,19 +4,21 @@ A guide to obtain a free, valid SSL for UniFi Controller. This method actually u
 # Fresh Debian 8 Instructions:
 
 ## Install UniFi Controller
-'''
+`
 sudo apt-get update -y
 sudo apt-get upgrade -y
 echo "deb http://www.ubnt.com/downloads/unifi/debian unifi5 ubiquiti" > /etc/apt/sources.list.d/ubnt.list 
 apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50
 apt-get update -y
 apt-get install unifi -y
-'''
+`
 
 ## Install Let's Encrypt certbot
+`
 echo 'deb http://ftp.debian.org/debian jessie-backports main' | sudo tee /etc/apt/sources.list.d/backports.list
 sudo apt-get update
 sudo apt-get install python-certbot-apache -t jessie-backports
+`
 
 ## Run the Certbot wizard, specify your domain like unifi.example.com, and email address
 certbot --apache
@@ -35,7 +37,7 @@ service apache2 restart
 nano /etc/apache2/sites-enabled/000-default.conf
 
 ## Example of 000-default.conf, change unifi.example.com to your site:
-
+`
 <VirtualHost *:80>
 	# The ServerName directive sets the request scheme, hostname and port that
 	# the server uses to identify itself. This is used when creating
@@ -71,9 +73,9 @@ nano /etc/apache2/sites-enabled/000-default.conf
 		Require all granted
 	</Directory>
 </VirtualHost>
-
+`
 ## Example of 000-default-le-ssl.conf, change unifi.example.com to your site:
-
+`
 <IfModule mod_ssl.c>
 <VirtualHost *:443>
 	# The ServerName directive sets the request scheme, hostname and port that
@@ -118,6 +120,6 @@ Include /etc/letsencrypt/options-ssl-apache.conf
 </VirtualHost>
 
 </IfModule>
-
+`
 ## Restart Apache for changes to take effect
 service apache2 restart
