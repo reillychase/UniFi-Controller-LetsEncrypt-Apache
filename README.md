@@ -1,5 +1,5 @@
 # UniFi-Controller-LetsEncrypt-Apache
-A guide to obtain a free, valid SSL for UniFi Controller
+A guide to obtain a free, valid SSL for UniFi Controller. This method actually uses an SSL'd Apache proxy rather than dealing with the complexity of updating UniFi's built in SSL.
 
 Fresh Debian 8 Instructions:
 
