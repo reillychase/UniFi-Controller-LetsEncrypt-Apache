@@ -1,4 +1,4 @@
-# Objective
+# UniFi Controller, Valid SSL on port 443 using Apache Proxy + Let's Encrypt
 
 A guide to obtain a free, valid SSL for UniFi Controller running on port 80/443 rather than the default 8080/8443. This method actually uses an SSL'd Apache proxy rather than dealing with the complexity of updating UniFi's built in SSL. Credit to Unizac https://community.ubnt.com/t5/UniFi-Wireless/Lets-Encrypt-and-UniFi-controller/td-p/1406670/page/2
 
