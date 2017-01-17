@@ -3,7 +3,7 @@ A guide to obtain a free, valid SSL for UniFi Controller. This method actually u
 
 Fresh Debian 8 Instructions:
 
-# Install UniFi Controller
+## Install UniFi Controller
 sudo apt-get update -y
 sudo apt-get upgrade -y
 echo "deb http://www.ubnt.com/downloads/unifi/debian unifi5 ubiquiti" > /etc/apt/sources.list.d/ubnt.list 
@@ -11,19 +11,19 @@ apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50
 apt-get update -y
 apt-get install unifi -y
 
-# Install Let's Encrypt certbot
+## Install Let's Encrypt certbot
 echo 'deb http://ftp.debian.org/debian jessie-backports main' | sudo tee /etc/apt/sources.list.d/backports.list
 sudo apt-get update
 sudo apt-get install python-certbot-apache -t jessie-backports
 
-# Run the Certbot wizard, specify your domain like unifi.example.com, and email address
+## Run the Certbot wizard, specify your domain like unifi.example.com, and email address
 certbot --apache
 
-# Add cronjob to auto renew cert every Monday at 2:30am
+## Add cronjob to auto renew cert every Monday at 2:30am
 sudo crontab -e
 30 2 * * 1 /usr/bin/certbot renew >> /var/log/le-renew.log
 
-# Add modules to Apache for Proxying HTTP/HTTPS to 8080 and 8443
+## Add modules to Apache for Proxying HTTP/HTTPS to 8080 and 8443
 mkdir /var/www/unifi
 a2enmod proxy
 a2enmod proxy_http
@@ -32,7 +32,7 @@ service apache2 restart
 
 nano /etc/apache2/sites-enabled/000-default.conf
 
-# Example of 000-default.conf, change unifi.example.com to your site:
+## Example of 000-default.conf, change unifi.example.com to your site:
 
 <VirtualHost *:80>
 	# The ServerName directive sets the request scheme, hostname and port that
@@ -70,7 +70,7 @@ nano /etc/apache2/sites-enabled/000-default.conf
 	</Directory>
 </VirtualHost>
 
-# Example of 000-default-le-ssl.conf, change unifi.example.com to your site:
+## Example of 000-default-le-ssl.conf, change unifi.example.com to your site:
 
 <IfModule mod_ssl.c>
 <VirtualHost *:443>
@@ -117,5 +117,5 @@ Include /etc/letsencrypt/options-ssl-apache.conf
 
 </IfModule>
 
-# Restart Apache for changes to take effect
+## Restart Apache for changes to take effect
 service apache2 restart
