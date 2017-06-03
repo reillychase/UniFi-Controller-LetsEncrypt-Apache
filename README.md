@@ -32,6 +32,7 @@ A guide to obtain a free, valid SSL for UniFi Controller running on port 80/443 
 	mkdir /var/www/unifi
 	a2enmod proxy
 	a2enmod proxy_http
+	a2enmod proxy_wstunnel
 
 	service apache2 restart
 
@@ -94,7 +95,10 @@ A guide to obtain a free, valid SSL for UniFi Controller running on port 80/443 
 		SSLProxyCheckPeerCN off
 		SSLProxyCheckPeerName off
 		ProxyPreserveHost On
-		ProxyPass / https://unifi.example.com:8443/	
+		ProxyPass /wss ws://unifi.example.com:8443/wss
+		ProxyPassReverse /wss ws://unifi.example.com:8443/wss
+		ProxyPass / https://unifi.example.com:8443/
+		ProxyPassReverse / https://unifi.example.com:8443/
 
 		# Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
 		# error, crit, alert, emerg.
