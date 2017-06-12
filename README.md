@@ -132,5 +132,5 @@ A guide to obtain a free, valid SSL for UniFi Controller running on port 80/443 
 ## Updating Unifi Controller to latest version
 
 	sudo apt-get update
-	sudo apt-get install update
+	sudo apt-get upgrade
 	service apache2 restart
