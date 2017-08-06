@@ -95,8 +95,8 @@ A guide to obtain a free, valid SSL for UniFi Controller running on port 80/443 
 		SSLProxyCheckPeerCN off
 		SSLProxyCheckPeerName off
 		ProxyPreserveHost On
-		ProxyPass /wss ws://localhost:8443/wss
-		ProxyPassReverse /wss ws://localhost:8443/wss
+		ProxyPass /wss wss://localhost:8443/wss
+		ProxyPassReverse /wss wss://localhost:8443/wss
 		ProxyPass / https://localhost:8443/
 		ProxyPassReverse / https://localhost:8443/
 
