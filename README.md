@@ -16,9 +16,9 @@ A guide to obtain a free, valid SSL for UniFi Controller running on port 80/443 
 
 ## Install Let's Encrypt certbot
 
-	echo 'deb http://ftp.debian.org/debian jessie-backports main' | sudo tee /etc/apt/sources.list.d/backports.list
+	echo 'deb http://ftp.debian.org/debian unstable main' | sudo tee /etc/apt/sources.list.d/unstable.list
 	sudo apt-get update
-	sudo apt-get install python-certbot-apache -t jessie-backports
+	sudo apt-get install python-certbot-apache -t unstable
 
 
 ## Run the Certbot wizard, specify your domain like unifi.example.com, and email address
