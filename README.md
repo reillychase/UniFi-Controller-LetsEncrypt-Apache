@@ -33,6 +33,7 @@ A guide to obtain a free, valid SSL for UniFi Controller running on port 80/443 
 	a2enmod proxy
 	a2enmod proxy_http
 	a2enmod proxy_wstunnel
+	a2enmod ssl
 
 	service apache2 restart
 
